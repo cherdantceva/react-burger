@@ -1,0 +1,40 @@
+.button-header {
+    composes: mr-2 from global;
+    composes: pl-5 from global;
+    composes: pr-5 from global;
+    composes: pt-4 from global;
+    composes: pb-4 from global;
+    display: flex;
+    align-items: center;
+
+}
+
+.button-header:last-child {
+    margin-right: 0;
+}
+
+.icon {
+    composes: mr-2 from global;
+}
+
+.icon svg {
+    fill: #8585AD;
+    transition: 0.3s fill ease-in-out;
+}
+
+.icon.icon_active svg,
+.button-header:hover .icon svg {
+    fill: #FFFFFF;
+}
+
+.text {
+    composes: text from global;
+    composes: text_type_main-default from global;
+    color: #8585AD;
+    transition: 0.3s color ease-in-out;
+}
+
+.text.text_active,
+.button-header:hover .text {
+    color: #FFFFFF;
+}
