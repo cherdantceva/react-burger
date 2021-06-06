@@ -6,7 +6,7 @@ const OrderDetails = () => {
     return (
         <div className={style['order-details']}>
             <div className={style.summ}>034536</div>
-            <div className={style.text}>идентификатор заказа</div>
+            <div className={style.text}>Идентификатор заказа</div>
             <img className={style.img} src={done} alt='order done' />
             <span className='text text_type_main-default mb-2'>
         Ваш заказ начали готовить

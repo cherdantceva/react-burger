@@ -1,8 +1,8 @@
 import style from './price.module.css'
 import {CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import cn from 'classnames'
-
-
+import PropTypes from "prop-types";
+import ModalOverlay from "../ModalOverlay/ModalOverlay";
 
 const Price = (props) => {
     const {price, size} = props;
@@ -28,6 +28,11 @@ const Price = (props) => {
             </div>
         </div>
     );
+};
+
+ModalOverlay.propTypes = {
+    price: PropTypes.string,
+    size: PropTypes.string
 };
 
 export default Price;

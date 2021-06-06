@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import style from "./modal-overlay.module.css";
+import PropTypes from "prop-types";
 
 const ModalOverlay = (props) => {
     const {onClose} = props;
@@ -26,5 +27,8 @@ const ModalOverlay = (props) => {
         </>
     );
 }
+ModalOverlay.propTypes = {
+    onClose: PropTypes.func.isRequired
+};
 
 export default ModalOverlay;

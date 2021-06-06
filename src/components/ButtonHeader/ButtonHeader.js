@@ -1,9 +1,9 @@
 import style from './button-header.module.css'
 import cn from 'classnames'
+import PropTypes from 'prop-types'
 
 const ButtonHeader = (props) => {
-    const {text, active, functionClick} = props;
-    console.log(text, active, functionClick)
+    const {text, icon, active, functionClick} = props;
     const buttonClass = cn( {
         [style['button-header']]: true,
         [style['button-header_active']]: active === true,
@@ -21,13 +21,20 @@ const ButtonHeader = (props) => {
     return (
         <button className={buttonClass} onClick={functionClick}>
             <span className={iconClass}>
-                 {props.icon}
+                 {icon}
             </span>
            <span className={textClass}>
                 {text}
            </span>
         </button>
     );
+};
+
+ButtonHeader.propTypes = {
+    icon: PropTypes.element.isRequired,
+    text: PropTypes.string.isRequired,
+    active: PropTypes.bool,
+    functionClick: PropTypes.func,
 };
 
 export default ButtonHeader;
