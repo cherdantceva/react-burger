@@ -41,7 +41,6 @@ const BurgerConstructor = (props) => {
                                     />
                                 </li>
                             ))
-
                         }
                     </ul>
                 </Scroll>

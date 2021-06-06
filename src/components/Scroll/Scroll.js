@@ -14,5 +14,4 @@ Scroll.propTypes = {
     children: PropTypes.element.isRequired,
 };
 
-
 export default Scroll;
