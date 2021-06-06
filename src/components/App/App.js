@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import AppHeader from '../src/components/AppHeader/AppHeader'
-import './index.css';
-import ConstructorPage from './components/AppConstructorPage/AppConstructorPage';
+import AppHeader from '../AppHeader/AppHeader'
+import '../../index.css';
+import ConstructorPage from '../AppConstructorPage/AppConstructorPage';
 function App() {
     const [data, setData] = useState([]);
     const url = "https://norma.nomoreparties.space/api/ingredients";
