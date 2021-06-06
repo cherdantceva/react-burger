@@ -7,7 +7,7 @@ import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
 import PropTypes from 'prop-types'
 const ConstructorPage = (props) => {
     const {dataBurgers} = props;
-    const [current, setCurrent] = React.useState('one');
+    const [current, setCurrent] = useState('one');
     return (
         <section className={style.page}>
             <h1 className={style.title}>

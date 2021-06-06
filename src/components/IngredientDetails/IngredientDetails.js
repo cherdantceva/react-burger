@@ -1,7 +1,6 @@
 import React from 'react';
 import style from "./ingredient-details.module.css";
 import PropTypes from "prop-types";
-import ConstructorPage from "../AppConstructorPage/AppConstructorPage";
 
 const IngredientDetails = (props) => {
     const {data} = props;

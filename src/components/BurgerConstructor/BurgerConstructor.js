@@ -6,7 +6,6 @@ import Price from "../Price/Price";
 import Modal from '../Modal/Modal';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from 'prop-types'
-import ConstructorPage from "../AppConstructorPage/AppConstructorPage";
 
 const BurgerConstructor = (props) => {
     const {dataBurgers} = props;

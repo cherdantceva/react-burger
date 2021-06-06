@@ -1,4 +1,4 @@
-import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components'
+import {Counter} from '@ya.praktikum/react-developer-burger-ui-components'
 import style from './item-ingredient.module.css'
 import Price from '../Price/Price';
 import PropTypes from "prop-types";

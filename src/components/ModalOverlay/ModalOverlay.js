@@ -8,7 +8,7 @@ const ModalOverlay = (props) => {
         if (event.keyCode === 27) {
             onClose();
         }
-    }, []);
+    }, [onClose]);
 
     useEffect(() => {
         document.addEventListener('keydown', closeEsc, false);
@@ -16,7 +16,7 @@ const ModalOverlay = (props) => {
         return () => {
             document.removeEventListener('keydown', closeEsc, false);
         };
-    }, []);
+    }, [closeEsc]);
 
     return (
         <>

@@ -4,7 +4,6 @@ import ItemIngredient from '../ItemIngredient/ItemIngredient';
 import Modal from '../Modal/Modal';
 import IngredientDetails from '../IngredientDetails/IngredientDetails';
 import PropTypes from 'prop-types'
-import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
 
 const BurgerIngredients = (props) => {
     const {dataBurgers} = props;
