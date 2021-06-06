@@ -1,0 +1,34 @@
+.scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.title {
+    composes: text from global;
+    composes: text_type_main-medium from global;
+    composes: pt-10 from global;
+    composes: pb-6 from global;
+}
+
+.thumb {
+    width: 8px;
+    background: #8585AD;
+}
+
+.track {
+    width: 8px;
+    background: #2F2F37;
+    padding: 40px 0;
+    height: 100%;
+    right: 0;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    grid-row-gap: 32px;
+    grid-column-gap: 40px;
+    composes: pl-4 from global;
+    composes: pr-4 from global;
+}

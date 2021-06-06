@@ -1,0 +1,46 @@
+.burger-constructor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.top, .bottom {
+    height: 80px;
+    composes: pl-8 from global;
+}
+
+.top div, .bottom div {
+    box-sizing: content-box;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    composes: pr-2 from global;
+    composes: mt-4 from global;
+    composes: mb-4 from global;
+}
+
+.item div {
+    box-sizing: content-box;
+}
+
+.icon-burger {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('../../images/item-burger.svg') no-repeat center 100%;
+    composes: mr-2 from global;
+}
+
+.order {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    composes: mt-10 from global;
+    margin-bottom: 52px;
+}
+
+.button {
+    composes: ml-10 from global;
+}

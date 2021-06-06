@@ -6,6 +6,7 @@
 
 .inner {
     max-width: 1360px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     composes: pl-10 from global;

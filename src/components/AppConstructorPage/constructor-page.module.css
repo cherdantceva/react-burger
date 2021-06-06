@@ -1,0 +1,53 @@
+
+.page {
+    max-width: 1320px;
+    height: calc(100vh - 108px);
+    composes: pl-10 from global;
+    composes: pr-10 from global;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.parts {
+    flex-grow: 1;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 40px;
+}
+
+.title {
+    composes: text from global;
+    composes: text_type_main-large from global;
+    composes: pt-10 from global;
+    composes: pb-5 from global;
+}
+
+.part {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.content {
+    height: 100%;
+    max-height: 100%;
+
+}
+
+.item {
+    height: 100px;
+    margin-bottom: 50px;
+    background: yellow;
+    width: 100%;
+}

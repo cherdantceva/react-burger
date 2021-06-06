@@ -1,8 +1,10 @@
-import { Logo, Icons, BurgerIcon, ListIcon } from '@ya.praktikum/react-developer-burger-ui-components'
+import React, { useState } from 'react';
+import { Logo, BurgerIcon, ListIcon, ProfileIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import style from './header.module.css'
-import ButtonHeader from "../AppButtonHeader/AppButtonHeader";
+import ButtonHeader from "../ButtonHeader/ButtonHeader";
 
 const Header = () => {
+    const [tab, setTab] = useState("constructor")
 
     return (
         <section className={style.header}>
@@ -11,10 +13,14 @@ const Header = () => {
                     <ButtonHeader
                         icon = {<BurgerIcon />}
                         text = 'Конструктор'
+                        functionClick = {() => setTab("constructor")}
+                        active = {(tab === "constructor")}
                     />
                     <ButtonHeader
                         icon = {<ListIcon/>}
                         text = 'Лента заказов'
+                        functionClick = {() => setTab("timeline")}
+                        active = {(tab === "timeline")}
                     />
                 </div>
                 <div className={style.logo}>
@@ -23,8 +29,8 @@ const Header = () => {
 
                 <div className={style.cabinet}>
                     <ButtonHeader
-                        icon = {<ListIcon/>}
-                        text = 'Лента заказов'
+                        icon = {<ProfileIcon/>}
+                        text = 'Личный кабинет'
                     />
                 </div>
             </div>

@@ -6,9 +6,11 @@
     composes: pb-4 from global;
     display: flex;
     align-items: center;
-
+    cursor: pointer;
 }
-
+.button-header_active {
+    cursor: auto;
+}
 .button-header:last-child {
     margin-right: 0;
 }

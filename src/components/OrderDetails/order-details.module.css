@@ -1,0 +1,25 @@
+.order-details {
+    composes: mt-4 from global;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.summ {
+    composes: mb-8 from global;
+    composes: text from global;
+    composes: text_type_digits-large from global;
+    text-shadow: 0 0 16px rgba(51, 51, 255, 0.25), 0 0 8px rgba(51, 51, 255, 0.25),
+    0 4px 32px rgba(51, 51, 255, 0.5);
+}
+
+.text {
+    composes: text from global;
+    composes: text_type_main-medium from global;
+    composes: mb-15 from global;
+}
+
+.img {
+    composes: mb-15 from global;
+}

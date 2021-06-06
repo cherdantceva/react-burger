@@ -1,0 +1,52 @@
+.ingredient-details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.img {
+    composes: mb-4 from global;
+    composes: pl-4 from global;
+    composes: pr-4 from global;
+}
+
+.name {
+    composes: text from global;
+    composes: text_type_main-medium from global;
+    composes: pl-4 from global;
+    composes: pr-4 from global;
+    composes: mb-8 from global;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    gap: 20px;
+    composes: mb-15 from global;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    composes: text_color_inactive from global;
+}
+
+.item-name {
+    composes: text from global;
+    composes: mb-5 from global;
+    composes: text_type_main-default from global;
+}
+
+.item-value {
+    composes: text from global;
+    composes: text_type_digits-default from global;
+    composes: text_color_inactive from global;
+}
+
+
+
+
+
+
