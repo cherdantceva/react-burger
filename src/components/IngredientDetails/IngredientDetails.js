@@ -6,7 +6,7 @@ const IngredientDetails = (props) => {
     const {data} = props;
     const items = [
         {
-            name: 'Калории, ккал',
+            name: 'Калории,ккал',
             value: `${data.calories}`
         },
         {
@@ -25,7 +25,9 @@ const IngredientDetails = (props) => {
     ]
     return (
         <div className={style['ingredient-details']}>
-            <img className={style.img} src={data.image_large} alt="ingredient" />
+            <div className={style['img-container']}>
+                <img className={style.img} src={data.image_large} alt="ingredient" />
+            </div>
             <h3 className={style.name}>
                 {data.name}
             </h3>

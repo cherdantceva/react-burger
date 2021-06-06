@@ -1,11 +1,19 @@
 .ingredient-details {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    padding: 0 100px;
+}
+
+.img-container {
+    height: 240px;
+    width: 480px;
+    composes: mb-4 from global;
 }
 
 .img {
-    composes: mb-4 from global;
+    object-fit: cover;
+    object-position: center;
     composes: pl-4 from global;
     composes: pr-4 from global;
 }
@@ -20,6 +28,7 @@
 
 .info {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     padding: 0;
     gap: 20px;
@@ -28,6 +37,7 @@
 
 .item {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     align-items: center;
     composes: text_color_inactive from global;

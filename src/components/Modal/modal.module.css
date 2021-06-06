@@ -3,7 +3,7 @@
     width: 720px;
     max-width: 100%;
     position: fixed;
-    top: 50%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #1c1c21;
@@ -15,9 +15,10 @@
 }
 
 .header {
-    min-height: 64px;
+    min-height: 104px;
+    display: flex;
+    align-items: center;
     padding-right: 60px;
-    position: relative;
     composes: text from global;
     composes: text_type_main-large from global;
     composes: pr-10 from global;
@@ -28,6 +29,11 @@
 .close {
     cursor: pointer;
     position: absolute;
-    top: 40px;
-    right: 0;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+    right: 40px;
 }
