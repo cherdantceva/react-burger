@@ -17,9 +17,12 @@
 
 .icon {
     composes: mr-2 from global;
+    height: 22px;
 }
 
 .icon svg {
+    height: 100%;
+    width: auto;
     fill: #8585AD;
     transition: 0.3s fill ease-in-out;
 }

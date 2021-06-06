@@ -1,7 +1,7 @@
 .header {
     background: #1C1C21;
-    composes: pb-6 from global;
-    composes: pt-6 from global;
+    composes: pb-4 from global;
+    composes: pt-4 from global;
 }
 
 .inner {
@@ -11,6 +11,7 @@
     grid-template-columns: repeat(3, 1fr);
     composes: pl-10 from global;
     composes: pr-10 from global;
+    align-items: center;
 }
 
 .buttons, .cabinet, .logo {
@@ -20,6 +21,11 @@
 
 .logo {
     justify-content: center;
+    height: 50px;
+}
+
+.logo svg {
+    height: 100%;
 }
 
 .cabinet {
