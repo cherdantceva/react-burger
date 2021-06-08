@@ -31,6 +31,7 @@ const Header = () => {
                     <ButtonHeader
                         icon = {<ProfileIcon/>}
                         text = 'Личный кабинет'
+                        active = {(tab === "account")}
                     />
                 </div>
             </div>
