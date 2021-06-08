@@ -3,7 +3,7 @@ import AppHeader from '../AppHeader/AppHeader'
 import '../../index.css';
 import ConstructorPage from '../AppConstructorPage/AppConstructorPage';
 function App() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
     const url = "https://norma.nomoreparties.space/api/ingredients";
     const fetchedData = () => {
         fetch(url)
