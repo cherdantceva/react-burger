@@ -24,7 +24,7 @@ const BurgerConstructor = (props) => {
                     isLocked={true}
                     text= {`${dataBurgers[0].name} (верх)`}
                     price={dataBurgers[0].price}
-                    thumbnail="https://code.s3.yandex.net/react/code/bun-02.png"
+                    thumbnail={dataBurgers[0].image}
                 />
             </div>
                 <Scroll className={style.scroll}>
@@ -50,7 +50,7 @@ const BurgerConstructor = (props) => {
                         isLocked={true}
                         text= {`${dataBurgers[0].name} (низ)`}
                         price={dataBurgers[0].price}
-                        thumbnail="https://code.s3.yandex.net/react/code/bun-02.png"
+                        thumbnail={dataBurgers[0].image}
                     />
                 </div>
                 <div className={style.order}>
