@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const ModalOverlay = (props) => {
     const {onClose} = props;
     const closeEsc = useCallback((event) => {
-        if (event.keyCode === 27) {
+        if (event.key === 'Escape') {
             onClose();
         }
     }, [onClose]);
