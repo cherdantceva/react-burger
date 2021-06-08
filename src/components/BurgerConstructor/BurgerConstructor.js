@@ -66,7 +66,7 @@ const BurgerConstructor = (props) => {
                     </div>
                 </div>
             {visible && (
-                <Modal onClose={closeModal}>
+                <Modal onClose={closeModal} isOpen={visible}>
                     <OrderDetails />
                 </Modal>
             )}

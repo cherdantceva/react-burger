@@ -70,7 +70,7 @@ const BurgerIngredients = (props) => {
                 ))}
         </ul>
         {visible && activeIngredient && (
-            <Modal header={'Детали ингредиента'} onClose={closeModal}>
+            <Modal header={'Детали ингредиента'} onClose={closeModal} isOpen={visible}>
                 <IngredientDetails data={activeIngredient} />
             </Modal>
         )}
