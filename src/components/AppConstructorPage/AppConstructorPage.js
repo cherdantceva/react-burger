@@ -6,7 +6,6 @@ import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
 import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
 import PropTypes from 'prop-types'
 const ConstructorPage = (props) => {
-    const {dataBurgers} = props;
     const [current, setCurrent] = useState('one');
     return (
         <section className={style.page}>
@@ -27,11 +26,11 @@ const ConstructorPage = (props) => {
                         </Tab>
                     </div>
                     <Scroll >
-                        <BurgerIngredients dataBurgers = {dataBurgers}/>
+                        <BurgerIngredients/>
                     </Scroll>
                 </div>
                 <div className={style.part}>
-                    <BurgerConstructor dataBurgers = {dataBurgers} />
+                    <BurgerConstructor/>
                 </div>
             </div>
         </section>

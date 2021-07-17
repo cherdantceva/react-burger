@@ -4,9 +4,10 @@ import ItemIngredient from '../ItemIngredient/ItemIngredient';
 import Modal from '../Modal/Modal';
 import IngredientDetails from '../IngredientDetails/IngredientDetails';
 import PropTypes from 'prop-types'
-
-const BurgerIngredients = (props) => {
-    const {dataBurgers} = props;
+import { useSelector } from 'react-redux';
+const BurgerIngredients = () => {
+    const dataBurgers = useSelector((state) => state.ingredients.ingredients);
+    console.log('dataBurgers', dataBurgers)
     const [activeIngredient, setActiveIngredient] = useState(null);
     const [visible, setVisible] = useState(false);
 

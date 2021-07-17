@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 import style from './burger-constructor.module.css'
 import {ConstructorElement, Button} from '@ya.praktikum/react-developer-burger-ui-components';
 import Scroll from "../Scroll/Scroll";
@@ -7,8 +8,9 @@ import Modal from '../Modal/Modal';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from 'prop-types'
 
-const BurgerConstructor = (props) => {
-    const {dataBurgers} = props;
+
+const BurgerConstructor = () => {
+    const dataBurgers = useSelector((state) => state.ingredients.ingredients);
     const [visible, setVisible] = useState(false);
     const openModal = () => {
         setVisible(true);

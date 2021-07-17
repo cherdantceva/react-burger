@@ -1,38 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import AppHeader from '../AppHeader/AppHeader'
 import '../../index.css';
 import ConstructorPage from '../AppConstructorPage/AppConstructorPage';
-function App() {
-    const [data, setData] = useState({});
-    const url = "https://norma.nomoreparties.space/api/ingredients";
-    const fetchedData = () => {
-        fetch(url)
-            .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-                return Promise.reject(res.status);
-            })
-            .then((res) => {
-                setData(res);
-            })
-            .catch((e) => {
-                console.error('error:', e);
-            });
-    };
+import { useDispatch, useSelector } from 'react-redux';
+import { getIngredients } from '../../services/actions/ingredients';
 
+function App() {
+    const dispatch = useDispatch();
+    const { ingredients } = useSelector((state) => state.ingredients);
     useEffect(() => {
-        fetchedData();
-    }, []);
+        dispatch(getIngredients());
+    }, [dispatch]);
 
     return (
       <>
           <AppHeader />
-          {data.data && data.success && (
-              <>
-                  <ConstructorPage dataBurgers={data.data} />
-              </>
-          )}
+          <>
+              {
+                  ingredients.length &&
+                  <ConstructorPage/>
+              }
+          </>
       </>
   );
 }
