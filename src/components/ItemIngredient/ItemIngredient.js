@@ -46,7 +46,7 @@ const ItemIngredient = (props) => {
 };
 
 ItemIngredient.propTypes = {
-    data: PropTypes.shape({
+    item: PropTypes.shape({
         _id: PropTypes.string,
         name: PropTypes.string,
         type: PropTypes.string,

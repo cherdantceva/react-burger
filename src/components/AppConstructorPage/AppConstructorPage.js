@@ -1,12 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import style from './constructor-page.module.css'
 import Scroll from '../Scroll/Scroll';
 import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
 import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
-import PropTypes from 'prop-types'
-const ConstructorPage = (props) => {
+
+const ConstructorPage = () => {
     const [current, setCurrent] = useState('one');
+    const scrollContainerRef = useRef(null);
+    const firstRef = useRef(null);
+    const secondRef = useRef(null);
+    const thirdRef = useRef(null);
+
+
+    const handleScroll = () => {
+        if (scrollContainerRef && firstRef && secondRef) {
+            const scrollContainerPosition = scrollContainerRef.current.getBoundingClientRect()
+                .top;
+            const firstHeaderPosition = firstRef.current.getBoundingClientRect().top;
+            const secondHeaderPosition = secondRef.current.getBoundingClientRect().top;
+            const thirdHeaderPosition = thirdRef.current.getBoundingClientRect().top;
+            const firstDiff = Math.abs(scrollContainerPosition - firstHeaderPosition);
+            const secondDiff = Math.abs(scrollContainerPosition - secondHeaderPosition);
+            const thirdDiff = Math.abs(scrollContainerPosition - thirdHeaderPosition);
+            if (firstDiff < secondDiff && firstDiff < thirdDiff) {
+                setCurrent("one");
+            } else if (secondDiff < firstDiff && secondDiff < thirdDiff) {
+                setCurrent("two");
+            }   else if (thirdDiff < secondDiff && thirdDiff < firstDiff) {
+                setCurrent("three");
+            }
+        }
+    };
+
     return (
         <section className={style.page}>
             <h1 className={style.title}>
@@ -25,8 +51,8 @@ const ConstructorPage = (props) => {
                             Начинки
                         </Tab>
                     </div>
-                    <Scroll >
-                        <BurgerIngredients/>
+                    <Scroll refScroll={scrollContainerRef} onScroll={handleScroll}>
+                        <BurgerIngredients firstRef={firstRef} secondRef={secondRef} thirdRef={thirdRef}/>
                     </Scroll>
                 </div>
                 <div className={style.part}>
@@ -35,24 +61,6 @@ const ConstructorPage = (props) => {
             </div>
         </section>
     );
-};
-
-ConstructorPage.propTypes = {
-    dataBurgers: PropTypes.arrayOf(PropTypes.shape({
-        _id: PropTypes.string,
-        name: PropTypes.string,
-        type: PropTypes.string,
-        proteins: PropTypes.number,
-        fat: PropTypes.number,
-        carbohydrates: PropTypes.number,
-        calories: PropTypes.number,
-        price: PropTypes.number,
-        image: PropTypes.string,
-        image_mobile: PropTypes.string,
-        image_large: PropTypes.string,
-        __v: PropTypes.number,
-        })
-    ).isRequired
 };
 
 export default ConstructorPage;

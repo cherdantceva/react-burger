@@ -7,7 +7,7 @@ import Scroll from "../Scroll/Scroll";
 import Price from "../Price/Price";
 import Modal from '../Modal/Modal';
 import OrderDetails from '../OrderDetails/OrderDetails';
-import PropTypes from 'prop-types'
+
 import { useDrop } from "react-dnd";
 import {
         ADD_INGREDIENT,
@@ -28,7 +28,6 @@ const BurgerConstructor = () => {
                 bun: item,
             });
         } else {
-            console.log('add jkjkjk')
             dispatch({
                 type: ADD_INGREDIENT,
                 ingredient: item,
@@ -124,22 +123,5 @@ const BurgerConstructor = () => {
     );
 };
 
-BurgerConstructor.propTypes = {
-    dataBurgers: PropTypes.arrayOf(PropTypes.shape({
-            _id: PropTypes.string,
-            name: PropTypes.string,
-            type: PropTypes.string,
-            proteins: PropTypes.number,
-            fat: PropTypes.number,
-            carbohydrates: PropTypes.number,
-            calories: PropTypes.number,
-            price: PropTypes.number,
-            image: PropTypes.string,
-            image_mobile: PropTypes.string,
-            image_large: PropTypes.string,
-            __v: PropTypes.number,
-        })
-    ).isRequired
-};
 
 export default BurgerConstructor;

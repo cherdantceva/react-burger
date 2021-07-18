@@ -5,10 +5,12 @@ import Modal from '../Modal/Modal';
 import IngredientDetails from '../IngredientDetails/IngredientDetails';
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux';
-const BurgerIngredients = () => {
+const BurgerIngredients = (props) => {
+    const {firstRef, secondRef, thirdRef} = props;
     const dataBurgers = useSelector((state) => state.ingredients.ingredients);
     const [activeIngredient, setActiveIngredient] = useState(null);
     const [visible, setVisible] = useState(false);
+
 
     const openModal = () => {
         setVisible(true);
@@ -24,7 +26,7 @@ const BurgerIngredients = () => {
 
     return (
     <div className={style['burger-ingredients']}>
-        <h2 className={style.title}>
+        <h2 className={style.title} ref={firstRef}>
             Булки
         </h2>
         <ul className={style.list}>
@@ -39,7 +41,7 @@ const BurgerIngredients = () => {
                 </li>
             ))}
         </ul>
-        <h2 className={style.title}>
+        <h2 className={style.title} ref={secondRef}>
             Соусы
         </h2>
         <ul className={style.list}>
@@ -54,7 +56,7 @@ const BurgerIngredients = () => {
                     </li>
                 ))}
         </ul>
-        <h2 className={style.title}>
+        <h2 className={style.title} ref={thirdRef}>
             Начинки
         </h2>
         <ul className={style.list}>
@@ -79,21 +81,9 @@ const BurgerIngredients = () => {
 };
 
 BurgerIngredients.propTypes = {
-    dataBurgers: PropTypes.arrayOf(PropTypes.shape({
-            _id: PropTypes.string,
-            name: PropTypes.string,
-            type: PropTypes.string,
-            proteins: PropTypes.number,
-            fat: PropTypes.number,
-            carbohydrates: PropTypes.number,
-            calories: PropTypes.number,
-            price: PropTypes.number,
-            image: PropTypes.string,
-            image_mobile: PropTypes.string,
-            image_large: PropTypes.string,
-            __v: PropTypes.number,
-        })
-    ).isRequired
+    firstRef: PropTypes.object.isRequired,
+    secondRef: PropTypes.object.isRequired,
+    thirdRef: PropTypes.object.isRequired,
 };
 
 export default BurgerIngredients;

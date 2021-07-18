@@ -15,7 +15,6 @@ const BurgerConstructorIngredient = (props) => {
     const {index, ingredient} = props;
     const dispatch = useDispatch();
 
-
     const [, ingredientDropTarget] = useDrop({
         accept: "item",
         drop(item) {
@@ -67,21 +66,21 @@ const BurgerConstructorIngredient = (props) => {
 };
 
 BurgerConstructorIngredient.propTypes = {
-    dataBurgers: PropTypes.arrayOf(PropTypes.shape({
-            _id: PropTypes.string,
-            name: PropTypes.string,
-            type: PropTypes.string,
-            proteins: PropTypes.number,
-            fat: PropTypes.number,
-            carbohydrates: PropTypes.number,
-            calories: PropTypes.number,
-            price: PropTypes.number,
-            image: PropTypes.string,
-            image_mobile: PropTypes.string,
-            image_large: PropTypes.string,
-            __v: PropTypes.number,
-        })
-    ).isRequired
+    ingredient: PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        type: PropTypes.string,
+        proteins: PropTypes.number,
+        fat: PropTypes.number,
+        carbohydrates: PropTypes.number,
+        calories: PropTypes.number,
+        price: PropTypes.number,
+        image: PropTypes.string,
+        image_mobile: PropTypes.string,
+        image_large: PropTypes.string,
+        __v: PropTypes.number,
+    }).isRequired,
+    index: PropTypes.number.isRequired
 };
 
 export default BurgerConstructorIngredient;
