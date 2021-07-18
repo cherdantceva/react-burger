@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import style from './burger-constructor.module.css'
 import {ConstructorElement, Button} from '@ya.praktikum/react-developer-burger-ui-components';
 import Scroll from "../Scroll/Scroll";
@@ -7,10 +7,46 @@ import Price from "../Price/Price";
 import Modal from '../Modal/Modal';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from 'prop-types'
+import { useDrop } from "react-dnd";
+import { DELETE_INGREDIENT, } from "../../services/actions/constructor";
+import { ADD_INGREDIENT } from "../../services/actions/constructor";
+import { ADD_BUN } from "../../services/actions/constructor";
+
 
 
 const BurgerConstructor = () => {
-    const dataBurgers = useSelector((state) => state.ingredients.ingredients);
+    const dispatch = useDispatch();
+    const { ingredients } = useSelector((store) => store.burgerConstructor);
+    const { bun } = useSelector((store) => store.burgerConstructor);
+    console.log('ttttt', ingredients);
+    function addIngredient(item) {
+        if (item.type === "bun") {
+            dispatch({
+                type: ADD_BUN,
+                bun: item,
+            });
+        } else {
+            dispatch({
+                type: ADD_INGREDIENT,
+                ingredient: item,
+            });
+        }
+    }
+    const [{ isHover }, dropTarget] = useDrop({
+        accept: "ingredient",
+        drop(item) {
+            addIngredient(item);
+        },
+    });
+
+    const deleteIngredient = (id) => {
+        dispatch({
+            type: DELETE_INGREDIENT ,
+            index: id,
+        });
+    };
+
+
     const [visible, setVisible] = useState(false);
     const openModal = () => {
         setVisible(true);
@@ -19,41 +55,48 @@ const BurgerConstructor = () => {
         setVisible(false);
     };
     return (
-        <div className={style['burger-constructor']}>
+        <div className={style['burger-constructor']} ref={dropTarget}>
             <div className={style.top}>
-                <ConstructorElement
+                {
+                    bun &&
+                    <ConstructorElement
                     type="top"
                     isLocked={true}
-                    text= {`${dataBurgers[0].name} (верх)`}
-                    price={dataBurgers[0].price}
-                    thumbnail={dataBurgers[0].image}
-                />
+                    text= {`${bun && bun.name} (верх)`}
+                    price={bun && bun.price}
+                    thumbnail={bun && bun.image}
+                    />
+
+                }
+
             </div>
                 <Scroll className={style.scroll}>
                     <ul className={style.list}>
-                        {dataBurgers
-                            .filter(burger => burger.type === 'main')
-                            .map(burger => (
-                                <li key={burger._id} className={style.item}>
-                                    <span className={style['icon-burger']}></span>
-                                    <ConstructorElement
-                                        text={burger.name}
-                                        price = {burger.price}
-                                        thumbnail =  {burger.image}
-                                    />
-                                </li>
-                            ))
-                        }
+                        {ingredients.map((ingredient, index) => (
+                            <li key={index} className={style.item}>
+                                <span className={style['icon-burger']} />
+                                <ConstructorElement
+                                    text={ingredient.name}
+                                    price = {ingredient.price}
+                                    thumbnail =  {ingredient.image}
+                                    index={index}
+                                />
+                            </li>
+                        )
+                        )}
                     </ul>
                 </Scroll>
                 <div className={style.bottom}>
-                    <ConstructorElement
-                        type="bottom"
-                        isLocked={true}
-                        text= {`${dataBurgers[0].name} (низ)`}
-                        price={dataBurgers[0].price}
-                        thumbnail={dataBurgers[0].image}
-                    />
+                    {
+                        bun &&
+                        <ConstructorElement
+                            type="bottom"
+                            isLocked={true}
+                            text= {`${bun && bun.name} (низ)`}
+                            price={bun && bun.price}
+                            thumbnail={bun && bun.image}
+                        />
+                    }
                 </div>
                 <div className={style.order}>
                     <div className={style.total}>

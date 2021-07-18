@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux';
 const BurgerIngredients = () => {
     const dataBurgers = useSelector((state) => state.ingredients.ingredients);
-    console.log('dataBurgers', dataBurgers)
     const [activeIngredient, setActiveIngredient] = useState(null);
     const [visible, setVisible] = useState(false);
 
@@ -34,7 +33,7 @@ const BurgerIngredients = () => {
                 .map(burger => (
                 <li key={burger._id}>
                     <ItemIngredient
-                        data={burger}
+                        item={burger}
                         handleListItemClick={handleListItemClick}
                     />
                 </li>
@@ -49,7 +48,7 @@ const BurgerIngredients = () => {
                 .map(burger => (
                     <li key={burger._id}>
                         <ItemIngredient
-                            data={burger}
+                            item={burger}
                             handleListItemClick={handleListItemClick}
                         />
                     </li>
@@ -64,7 +63,7 @@ const BurgerIngredients = () => {
                 .map(burger => (
                     <li key={burger._id}>
                         <ItemIngredient
-                            data={burger}
+                            item={burger}
                             handleListItemClick={handleListItemClick}
                         />
                     </li>

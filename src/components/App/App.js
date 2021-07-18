@@ -4,10 +4,13 @@ import '../../index.css';
 import ConstructorPage from '../AppConstructorPage/AppConstructorPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIngredients } from '../../services/actions/ingredients';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 function App() {
     const dispatch = useDispatch();
     const { ingredients } = useSelector((state) => state.ingredients);
+    console.log('lkjlkj', ingredients)
     useEffect(() => {
         dispatch(getIngredients());
     }, [dispatch]);
@@ -18,7 +21,9 @@ function App() {
           <>
               {
                   ingredients.length &&
-                  <ConstructorPage/>
+                  <DndProvider backend={HTML5Backend}>
+                    <ConstructorPage/>
+                  </DndProvider>
               }
           </>
       </>
