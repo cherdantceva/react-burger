@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from './burger-constructor.module.css'
 import {ConstructorElement, Button} from '@ya.praktikum/react-developer-burger-ui-components';
+import { getOrderId } from '../../services/actions/order';
 import Scroll from "../Scroll/Scroll";
 import Price from "../Price/Price";
 import Modal from '../Modal/Modal';
@@ -104,7 +105,10 @@ const BurgerConstructor = () => {
                             size = 'big' />
                     </div>
                     <div className={style.button}>
-                        <Button type="primary" size="large" onClick={openModal}>
+                        <Button type="primary" size="large" onClick={() => {
+                            dispatch(getOrderId(ingredients));
+                            openModal();
+                        }}>
                             Оформить заказ
                         </Button>
                     </div>
