@@ -12,7 +12,6 @@ const Modal = (props) => {
     useEffect(() => {
 
         const closeEsc = (event) => {
-            console.log('esc')
             if (event.key === 'Escape') {
                 onClose();
             }
