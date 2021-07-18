@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from './burger-constructor.module.css'
 import {ConstructorElement, Button} from '@ya.praktikum/react-developer-burger-ui-components';
@@ -40,6 +40,16 @@ const BurgerConstructor = () => {
             addIngredient(item);
         },
     });
+
+    const [price, setPrice] = React.useState(0);
+    useMemo(() => {
+            setPrice(0);
+            ingredients.forEach(( ingredient) => {
+                setPrice((prev) => prev + ingredient.price);
+            });
+            if(bun) setPrice((prev) => prev + bun.price * 2) ;
+
+    }, [ingredients, bun]);
 
 
     const [visible, setVisible] = useState(false);
@@ -85,10 +95,12 @@ const BurgerConstructor = () => {
                         />
                     }
                 </div>
+            {
+                price > 0 &&
                 <div className={style.order}>
                     <div className={style.total}>
                         <Price
-                            price = '610'
+                            price = {price}
                             size = 'big' />
                     </div>
                     <div className={style.button}>
@@ -97,7 +109,9 @@ const BurgerConstructor = () => {
                         </Button>
                     </div>
                 </div>
-            {visible && (
+            }
+
+            {visible && price && (
                 <Modal onClose={closeModal} isOpen={visible}>
                     <OrderDetails />
                 </Modal>
