@@ -8,9 +8,11 @@ import Modal from '../Modal/Modal';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from 'prop-types'
 import { useDrop } from "react-dnd";
-import { DELETE_INGREDIENT, } from "../../services/actions/constructor";
-import { ADD_INGREDIENT } from "../../services/actions/constructor";
-import { ADD_BUN } from "../../services/actions/constructor";
+import { DELETE_INGREDIENT,
+        ADD_INGREDIENT,
+        ADD_BUN,
+        INGREDIENT_MIX,
+        } from "../../services/actions/constructor";
 
 
 
@@ -18,7 +20,6 @@ const BurgerConstructor = () => {
     const dispatch = useDispatch();
     const { ingredients } = useSelector((store) => store.burgerConstructor);
     const { bun } = useSelector((store) => store.burgerConstructor);
-    console.log('ttttt', ingredients);
     function addIngredient(item) {
         if (item.type === "bun") {
             dispatch({
@@ -32,16 +33,17 @@ const BurgerConstructor = () => {
             });
         }
     }
-    const [{ isHover }, dropTarget] = useDrop({
+    const [, dropTarget] = useDrop({
         accept: "ingredient",
         drop(item) {
             addIngredient(item);
         },
     });
 
+
     const deleteIngredient = (id) => {
         dispatch({
-            type: DELETE_INGREDIENT ,
+            type: DELETE_INGREDIENT,
             index: id,
         });
     };
@@ -80,6 +82,7 @@ const BurgerConstructor = () => {
                                     price = {ingredient.price}
                                     thumbnail =  {ingredient.image}
                                     index={index}
+                                    handleClose={() => deleteIngredient(index)}
                                 />
                             </li>
                         )

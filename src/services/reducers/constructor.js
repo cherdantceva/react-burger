@@ -1,6 +1,6 @@
 import {
     ADD_INGREDIENT,
-    ADD_INGREDIENT_MIX,
+    INGREDIENT_MIX,
     ADD_BUN,
     DELETE_INGREDIENT,
     DELETE_INGREDIENTS
@@ -19,7 +19,7 @@ export const burgerConstructorReducer = (state = initialState, action) => {
                 ingredients: [...state.ingredients, action.ingredient],
             };
         }
-        case ADD_INGREDIENT_MIX: {
+        case INGREDIENT_MIX: {
             return {
                 ...state,
                 ingredients: [
