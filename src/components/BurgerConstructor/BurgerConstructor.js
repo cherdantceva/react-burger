@@ -97,7 +97,7 @@ const BurgerConstructor = () => {
                     }
                 </div>
             {
-                price > 0 &&
+                price > 0 && ingredients.length > 0 && bun &&
                 <div className={style.order}>
                     <div className={style.total}>
                         <Price
@@ -115,7 +115,7 @@ const BurgerConstructor = () => {
                 </div>
             }
 
-            {visible && price && (
+            {visible && (
                 <Modal onClose={closeModal} isOpen={visible}>
                     <OrderDetails />
                 </Modal>

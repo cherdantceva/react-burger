@@ -1,4 +1,5 @@
 import { fetchedOrder } from '../../api';
+import {DELETE_INGREDIENTS} from "./constructor";
 
 export const GET_ORDER_ID_REQUEST = 'GET_ORDER_ID_REQUEST';
 export const GET_ORDER_ID_SUCCESS = 'GET_ORDER_ID_SUCCESS';
@@ -18,6 +19,9 @@ export function getOrderId(burger) {
                         type: GET_ORDER_ID_SUCCESS,
                         orderId: res.order.number,
                     });
+                    dispatch({
+                        type: DELETE_INGREDIENTS,
+                    })
                 }
             })
             .catch(() => {
