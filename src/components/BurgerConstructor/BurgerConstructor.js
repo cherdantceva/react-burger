@@ -8,11 +8,11 @@ import Modal from '../Modal/Modal';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from 'prop-types'
 import { useDrop } from "react-dnd";
-import { DELETE_INGREDIENT,
+import {
         ADD_INGREDIENT,
         ADD_BUN,
-        INGREDIENT_MIX,
         } from "../../services/actions/constructor";
+import BurgerConstructorIngredient from "../BurgerConstructorIngredient/BurgerConstructorIngredient";
 
 
 
@@ -27,6 +27,7 @@ const BurgerConstructor = () => {
                 bun: item,
             });
         } else {
+            console.log('add jkjkjk')
             dispatch({
                 type: ADD_INGREDIENT,
                 ingredient: item,
@@ -39,14 +40,6 @@ const BurgerConstructor = () => {
             addIngredient(item);
         },
     });
-
-
-    const deleteIngredient = (id) => {
-        dispatch({
-            type: DELETE_INGREDIENT,
-            index: id,
-        });
-    };
 
 
     const [visible, setVisible] = useState(false);
@@ -75,16 +68,7 @@ const BurgerConstructor = () => {
                 <Scroll className={style.scroll}>
                     <ul className={style.list}>
                         {ingredients.map((ingredient, index) => (
-                            <li key={index} className={style.item}>
-                                <span className={style['icon-burger']} />
-                                <ConstructorElement
-                                    text={ingredient.name}
-                                    price = {ingredient.price}
-                                    thumbnail =  {ingredient.image}
-                                    index={index}
-                                    handleClose={() => deleteIngredient(index)}
-                                />
-                            </li>
+                            <BurgerConstructorIngredient  key={index} index={index} ingredient={ingredient} />
                         )
                         )}
                     </ul>

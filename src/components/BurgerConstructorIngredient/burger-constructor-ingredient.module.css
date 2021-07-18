@@ -46,3 +46,8 @@
     composes: ml-10 from global;
 }
 
+.container{
+    width:70%;
+    height:100%;
+    position:absolute;
+}
